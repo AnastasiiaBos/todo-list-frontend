@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getAllTasks = (setAllTasks) => {
-    axios.get('http://localhost:3000')
+    axios.get('https://todo-list-ln7v.onrender.com')
     .then(({ data }) => {
         console.log(data);
         setAllTasks(data);
@@ -9,7 +9,7 @@ const getAllTasks = (setAllTasks) => {
 };
 
 const removeAllTasks = (setTaskName, setEditing, setAllTasks) => {
-    axios.get('http://localhost:3000/removeTasks')
+    axios.get('https://todo-list-ln7v.onrender.com/removeTasks')
     .then(() => {
         setTaskName('');
         setEditing(false);
@@ -18,7 +18,7 @@ const removeAllTasks = (setTaskName, setEditing, setAllTasks) => {
 };
 
 const addTask = (taskName, setTaskName, setAllTasks) => {
-    axios.post('http://localhost:3000/saveTask', { taskName })
+    axios.post('https://todo-list-ln7v.onrender.com/saveTask', { taskName })
     .then( () => {
         setTaskName('');
         getAllTasks(setAllTasks);
@@ -26,7 +26,7 @@ const addTask = (taskName, setTaskName, setAllTasks) => {
 };
 
 const deleteTask = (_id, setTaskName, setEditing, setAllTasks) => {
-    axios.post('http://localhost:3000/deleteTask', { _id})
+    axios.post('https://todo-list-ln7v.onrender.com/deleteTask', { _id})
     .then( () => {
         setTaskName('');
         setEditing(false);
@@ -35,7 +35,7 @@ const deleteTask = (_id, setTaskName, setEditing, setAllTasks) => {
 };
 
 const editTask = (taskName, taskId, setTaskName, setAllTasks, setEditing) => {
-    axios.put('http://localhost:3000/editTask', { taskName, _id: taskId })
+    axios.put('https://todo-list-ln7v.onrender.com/editTask', { taskName, _id: taskId })
     .then( () => {
         setTaskName('');
         setEditing(false);
